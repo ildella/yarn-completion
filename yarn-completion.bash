@@ -477,7 +477,6 @@ _yarn_global() {
 		bin
 		list
 		remove
-		upgrade
 		upgrade-interactive
 	)
 	cmdlist="@($(tr ' ' '|' <<< "${subcommands[*]}"))"
@@ -843,42 +842,6 @@ _yarn_unplug() {
 	return 1
 }
 
-_yarn_upgrade() {
-	((depth++))
-	declare cmd dependencies devDependencies
-	flags=(
-		--audit -A
-		--caret -C
-		--exact -E
-		--latest -L
-		--pattern -P
-		--scope -S
-		--tilde -T
-	)
-	__yarn_get_command -d 1
-	case "$cmd" in
-		global)
-			dependencies=$(__yarn_get_package_fields -g dependencies)
-			devDependencies=''
-			;;
-		upgrade)
-			dependencies=$(__yarn_get_package_fields dependencies)
-			devDependencies=$(__yarn_get_package_fields devDependencies)
-			;;
-		*)
-			return 1
-			;;
-	esac
-	case "$cur" in
-		-*) ;;
-		*)
-			COMPREPLY=($(compgen -W "$dependencies $devDependencies" -- "$cur"))
-			return 0
-			;;
-	esac
-	return 1
-}
-
 _yarn_upgrade_interactive() {
 	((depth++))
 	flags=(
@@ -1063,7 +1026,6 @@ _yarn() {
 		team
 		unlink
 		unplug
-		upgrade
 		upgrade-interactive
 		version
 		versions
