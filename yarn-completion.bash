@@ -377,10 +377,9 @@ _yarn_config() {
 	((depth++))
 	declare cmd
 	declare subcommands=(
-		delete
 		get
-		list
 		set
+		unset
 	)
 	declare known_keys=(
 		ignore-optional
@@ -992,43 +991,37 @@ _yarn() {
 	declare -a words
 	declare -i cword counter=1 depth=1
 	declare -ar commands=(
-		access
 		add
-		audit
-		autoclean
 		bin
 		cache
-		check
 		config
+		constraints
 		create
+		dedupe
+		dix
 		exec
-		generate-lock-entry
-		global
-		help
-		import
+		explain
 		info
 		init
 		install
-		licenses
 		link
-		list
-		login
-		logout
 		node
-		outdated
-		owner
+		npm
 		pack
-		policies
-		publish
+		patch-commit
+		patch
+		plugin
+		rebuild
 		remove
 		run
-		tag
-		team
+		search
+		set
+		stage
 		unlink
 		unplug
+		up
 		upgrade-interactive
 		version
-		versions
 		why
 		workspace
 		workspaces
