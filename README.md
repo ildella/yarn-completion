@@ -2,6 +2,15 @@
 
 > Bash ^4.x completion for [Yarn CLI 4.x](https://yarnpkg.com/cli)
 
+## Installation on Debian Linux
+
+Just grab the file and move it to bash completion global folder:
+
+```shell
+wget https://raw.githubusercontent.com/ildella/yarn-completion/master/yarn-completion.bash yarn-completion.bash
+sudo mv yarn-completion.bash /etc/bash_completion.d
+```
+
 ## Installation
 
 To enable on-demand completion loading, download the completion file to the predefined bash-completion user directory.
@@ -13,6 +22,7 @@ curl -o "${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-c
 ```
 
 ### Installation on macOS with Homebrew
+
 To use this script on macOS, we need to install [bash](https://www.gnu.org/software/bash/) and [bash-completion](https://github.com/scop/bash-completion) in addition to the above script.
 
 1.  `bash` version ^4.x.x is **required**.
