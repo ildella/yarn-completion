@@ -1019,7 +1019,6 @@ _yarn() {
 		stage
 		unlink
 		unplug
-		up
 		upgrade-interactive
 		version
 		why
